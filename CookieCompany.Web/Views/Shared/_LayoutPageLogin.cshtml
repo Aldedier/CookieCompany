@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <style>
+        h1{
+            color: blue;
+            text-align: center;
+            border: 1px solid #ff0000;
+        }
+        table {
+            border: 2px dashed blue;
+            text-align: center;
+        }
+        input{
+            background-color: transparent;
+        }
+
+        .titulo{
+            color: red;
+            text-align:center;
+            font-size: large;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .contenedor{
+            width:100%;
+        }
+        .left{
+            width: 10%;
+            float:left;
+        }
+        .right {
+            width: 90%;
+            float: right;
+        }
+        a{
+            text-decoration:none;
+        }
+        a:hover{
+            text-decoration:underline;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 class="titulo">Iniciar Sesión</h1>
+        @RenderBody()
+        @RenderSection("script", false)
+    </div>
+</body>
+</html>

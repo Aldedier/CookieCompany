@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CookieCompany.Model.Context.Producto>
+@using CookieCompany.Model.Context
+
+@{
+    ViewBag.Title = "Listado de articulos";
+    //Layout = "~/Views/Shared/_LayoutPageLogin.cshtml";
+}
+
+<h2>Listado de articulos</h2>
+
+<div class="contenedor">
+    <p class="left">
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table right">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+<div class="contenedor">
+    <input type="button" id="btnAdd" value="Agregar Item" />
+    <ol id="lstDemo"></ol>
+</div>
+
+@section script{
+    <script type="text/javascript">
+
+        $("#btnAdd").on('click', function () { addElement(); });
+
+        function addElement() {
+            $("#lstDemo").append("<li class='text-warning'>AAA</li>");
+        }
+    </script>
+    }
