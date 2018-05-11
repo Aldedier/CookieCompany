@@ -9,6 +9,9 @@ namespace CookieCompany.Web.Controllers
     {
         // GET: Utils
 
+
+
+
         private CookieCompanyModel db = new CookieCompanyModel();
 
         public ActionResult ObtenerProductosId(int id)
