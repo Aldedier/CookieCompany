@@ -24,5 +24,24 @@ namespace CookieCompany.Client
         {
             InitializeComponent();
         }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            using (var proxy = new Proxy.ProductsServiceClient())
+            {
+                var products = await proxy.GetProductsAsync();
+                lstResults.ItemsSource = products;
+            }
+        }
+
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            using (var proxy = new Proxy.ProductsServiceClient())
+            {
+                int.TryParse(txtId.Text, out int _idProduct);
+                var products = await proxy.GetProductsByIdAsync(_idProduct);
+                MessageBox.Show(products);
+            }
+        }
     }
 }
