@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c4051496-f6e4-4d3c-95c9-3f3db03d7db2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52906/ProductsService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ProductsService.xsd" MetadataType="Schema" ID="2a2d2b6e-08ca-47fe-a369-458d48346d15" SourceId="1" SourceUrl="http://localhost:52906/ProductsService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ProductsService.wsdl" MetadataType="Wsdl" ID="3bf76a44-63d8-4c8c-899e-3c4496f23452" SourceId="1" SourceUrl="http://localhost:52906/ProductsService.svc?wsdl" />
+    <MetadataFile FileName="ProductsService1.xsd" MetadataType="Schema" ID="fd5913ee-ac10-489b-bbfa-2b395398e30c" SourceId="1" SourceUrl="http://localhost:52906/ProductsService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ProductsService2.xsd" MetadataType="Schema" ID="3e3afee2-07ab-4dfc-ae28-62bc04aaac32" SourceId="1" SourceUrl="http://localhost:52906/ProductsService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ProductsService.disco" MetadataType="Disco" ID="bd272e38-0d85-43b8-9f1f-7c0e0c6bb831" SourceId="1" SourceUrl="http://localhost:52906/ProductsService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
