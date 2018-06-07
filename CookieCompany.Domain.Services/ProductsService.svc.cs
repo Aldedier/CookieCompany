@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using CookieCompany.Model.Services.Data;
 
 namespace CookieCompany.Domain.Services
 {
@@ -25,5 +26,10 @@ namespace CookieCompany.Domain.Services
         }
 
         public string GetProductsById(int id) => model.Producto.Find(id).Name;
+
+        public IEnumerable<ProductoDTO> Productos()
+        {
+            return model.Producto.Select(x => new ProductoDTO { Id = x.Id , Name = x.Name, Image = x.Image});
+        }
     }
 }

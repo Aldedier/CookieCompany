@@ -92,6 +92,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\Proxy\CookieCompany.Client.Proxy.MiServicio.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Proxy\ProductsService.wsdl" />
     <None Include="Connected Services\Proxy\ProductsService.xsd">
       <SubType>Designer</SubType>
@@ -100,6 +103,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\Proxy\ProductsService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Proxy\ProductsService3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">

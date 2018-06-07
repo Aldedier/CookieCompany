@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:52906/ProductsService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:52906/ProductsService.svc?xsd=xsd3" namespace="https://miservicio.com" />
   <xs:element name="GetProducts">
     <xs:complexType>
       <xs:sequence />
@@ -24,6 +25,18 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetProductsByIdResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Productos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="https://miservicio.com" minOccurs="0" name="ProductosResult" nillable="true" type="q2:ArrayOfMi_x0020_Servicio" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

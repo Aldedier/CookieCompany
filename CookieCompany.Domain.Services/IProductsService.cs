@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CookieCompany.Model.Services.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -16,5 +17,9 @@ namespace CookieCompany.Domain.Services
 
         [OperationContract]
         string GetProductsById(int id);
+
+        [OperationContract]
+        IEnumerable<ProductoDTO> Productos();         
+        
     }
 }

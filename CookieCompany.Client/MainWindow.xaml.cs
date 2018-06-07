@@ -43,5 +43,14 @@ namespace CookieCompany.Client
                 MessageBox.Show(products);
             }
         }
+
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            using (var proxy = new Proxy.ProductsServiceClient())
+            {
+                var products = await proxy.ProductosAsync();
+                lstResults.ItemsSource = products.Select(x => x.Name);
+            }
+        }
     }
 }

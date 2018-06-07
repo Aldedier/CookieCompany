@@ -91,6 +91,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CookieCompany.Model.Services\CookieCompany.Model.Services.csproj">
+      <Project>{74130597-BD62-4C1A-91FA-17AB2A5BEF57}</Project>
+      <Name>CookieCompany.Model.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CookieCompany.Model\CookieCompany.Model.csproj">
       <Project>{614d2d9d-5fff-49b7-b91d-6034a55e393a}</Project>
       <Name>CookieCompany.Model</Name>
