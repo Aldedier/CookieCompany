@@ -5,7 +5,8 @@
       <xsd:import schemaLocation="http://localhost:52906/ProductsService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:52906/ProductsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:52906/ProductsService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://localhost:52906/ProductsService.svc?xsd=xsd3" namespace="https://miservicio.com" />
+      <xsd:import schemaLocation="http://localhost:52906/ProductsService.svc?xsd=xsd3" namespace="https://miservicioerror.com" />
+      <xsd:import schemaLocation="http://localhost:52906/ProductsService.svc?xsd=xsd4" namespace="https://miservicio.com" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IProductsService_GetProducts_InputMessage">
@@ -20,11 +21,23 @@
   <wsdl:message name="IProductsService_GetProductsById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetProductsByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IProductsService_GetProductsById_ProductoFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="https://miservicioerror.com" name="detail" element="q1:ServicioError" />
+  </wsdl:message>
   <wsdl:message name="IProductsService_Productos_InputMessage">
     <wsdl:part name="parameters" element="tns:Productos" />
   </wsdl:message>
   <wsdl:message name="IProductsService_Productos_OutputMessage">
     <wsdl:part name="parameters" element="tns:ProductosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductsService_AddProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProduct" />
+  </wsdl:message>
+  <wsdl:message name="IProductsService_AddProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductsService_AddProduct_ProductoFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="https://miservicioerror.com" name="detail" element="q2:ServicioError" />
   </wsdl:message>
   <wsdl:portType name="IProductsService">
     <wsdl:operation name="GetProducts">
@@ -34,10 +47,16 @@
     <wsdl:operation name="GetProductsById">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductsService/GetProductsById" message="tns:IProductsService_GetProductsById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductsService/GetProductsByIdResponse" message="tns:IProductsService_GetProductsById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://demoswcf/Producto/ProductoIdFault" name="ProductoFaultFault" message="tns:IProductsService_GetProductsById_ProductoFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="Productos">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductsService/Productos" message="tns:IProductsService_Productos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductsService/ProductosResponse" message="tns:IProductsService_Productos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductsService/AddProduct" message="tns:IProductsService_AddProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductsService/AddProductResponse" message="tns:IProductsService_AddProduct_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://demoswcf/Producto/ProductoFault" name="ProductoFaultFault" message="tns:IProductsService_AddProduct_ProductoFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProductsService" type="tns:IProductsService">
@@ -59,6 +78,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ProductoFaultFault">
+        <soap:fault use="literal" name="ProductoFaultFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="Productos">
       <soap:operation soapAction="http://tempuri.org/IProductsService/Productos" style="document" />
@@ -68,6 +90,18 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <soap:operation soapAction="http://tempuri.org/IProductsService/AddProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ProductoFaultFault">
+        <soap:fault use="literal" name="ProductoFaultFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ProductsService">

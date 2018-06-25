@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text;
+using CookieCompany.Model.Services.FaultExcepcion;
 
 namespace CookieCompany.Domain.Services
 {
@@ -16,10 +16,14 @@ namespace CookieCompany.Domain.Services
         IEnumerable<string> GetProducts();
 
         [OperationContract]
+        [FaultContract(typeof(ProductoFault), Action = "http://demoswcf/Producto/ProductoIdFault")]
         string GetProductsById(int id);
 
         [OperationContract]
-        IEnumerable<ProductoDTO> Productos();         
-        
+        IEnumerable<ProductoDTO> Productos();
+
+        [OperationContract]
+        [FaultContract(typeof(ProductoFault), Action = "http://demoswcf/Producto/ProductoFault")]
+        void AddProduct(ProductoDTO producto);
     }
 }

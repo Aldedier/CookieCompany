@@ -9,86 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace CookieCompany.Client.Proxy {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Mi Servicio", Namespace="https://miservicio.com")]
-    [System.SerializableAttribute()]
-    public partial class MiServicio : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ImageField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Image {
-            get {
-                return this.ImageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
-                    this.ImageField = value;
-                    this.RaisePropertyChanged("Image");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Proxy.IProductsService")]
@@ -101,16 +22,24 @@ namespace CookieCompany.Client.Proxy {
         System.Threading.Tasks.Task<string[]> GetProductsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductsService/GetProductsById", ReplyAction="http://tempuri.org/IProductsService/GetProductsByIdResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(CookieCompany.Model.Services.FaultExcepcion.ProductoFault), Action="http://demoswcf/Producto/ProductoIdFault", Name="ServicioError", Namespace="https://miservicioerror.com")]
         string GetProductsById(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductsService/GetProductsById", ReplyAction="http://tempuri.org/IProductsService/GetProductsByIdResponse")]
         System.Threading.Tasks.Task<string> GetProductsByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductsService/Productos", ReplyAction="http://tempuri.org/IProductsService/ProductosResponse")]
-        CookieCompany.Client.Proxy.MiServicio[] Productos();
+        CookieCompany.Model.Services.Data.ProductoDTO[] Productos();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductsService/Productos", ReplyAction="http://tempuri.org/IProductsService/ProductosResponse")]
-        System.Threading.Tasks.Task<CookieCompany.Client.Proxy.MiServicio[]> ProductosAsync();
+        System.Threading.Tasks.Task<CookieCompany.Model.Services.Data.ProductoDTO[]> ProductosAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductsService/AddProduct", ReplyAction="http://tempuri.org/IProductsService/AddProductResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(CookieCompany.Model.Services.FaultExcepcion.ProductoFault), Action="http://demoswcf/Producto/ProductoFault", Name="ServicioError", Namespace="https://miservicioerror.com")]
+        void AddProduct(CookieCompany.Model.Services.Data.ProductoDTO producto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductsService/AddProduct", ReplyAction="http://tempuri.org/IProductsService/AddProductResponse")]
+        System.Threading.Tasks.Task AddProductAsync(CookieCompany.Model.Services.Data.ProductoDTO producto);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -156,12 +85,20 @@ namespace CookieCompany.Client.Proxy {
             return base.Channel.GetProductsByIdAsync(id);
         }
         
-        public CookieCompany.Client.Proxy.MiServicio[] Productos() {
+        public CookieCompany.Model.Services.Data.ProductoDTO[] Productos() {
             return base.Channel.Productos();
         }
         
-        public System.Threading.Tasks.Task<CookieCompany.Client.Proxy.MiServicio[]> ProductosAsync() {
+        public System.Threading.Tasks.Task<CookieCompany.Model.Services.Data.ProductoDTO[]> ProductosAsync() {
             return base.Channel.ProductosAsync();
+        }
+        
+        public void AddProduct(CookieCompany.Model.Services.Data.ProductoDTO producto) {
+            base.Channel.AddProduct(producto);
+        }
+        
+        public System.Threading.Tasks.Task AddProductAsync(CookieCompany.Model.Services.Data.ProductoDTO producto) {
+            return base.Channel.AddProductAsync(producto);
         }
     }
 }

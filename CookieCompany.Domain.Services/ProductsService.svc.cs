@@ -1,10 +1,7 @@
-﻿using System;
+﻿using CookieCompany.Model.Services.Data;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text;
-using CookieCompany.Model.Services.Data;
 
 namespace CookieCompany.Domain.Services
 {
@@ -19,7 +16,6 @@ namespace CookieCompany.Domain.Services
             model = new Model.Context.CookieCompanyModel();
         }
 
-
         public IEnumerable<string> GetProducts()
         {
             return model.Producto.Select(x => x.Name);
@@ -29,7 +25,24 @@ namespace CookieCompany.Domain.Services
 
         public IEnumerable<ProductoDTO> Productos()
         {
-            return model.Producto.Select(x => new ProductoDTO { Id = x.Id , Name = x.Name, Image = x.Image});
+            return model.Producto.Select(x => new ProductoDTO { Id = x.Id, Name = x.Name, Image = x.Image });
+        }
+
+        public void AddProduct(ProductoDTO producto)
+        {
+            if (producto.Name == string.Empty && producto.Image == string.Empty)
+            {
+                throw new FaultException<Model.Services.FaultExcepcion.ProductoFault>(new Model.Services.FaultExcepcion.ProductoFault("Faltó diligenciar un campo"));
+            }
+            else
+            {
+                model.Producto.Add(new Model.Context.Producto
+                {
+                    Name = producto.Name,
+                    Image = producto.Image
+                });
+                model.SaveChanges();
+            }
         }
     }
 }

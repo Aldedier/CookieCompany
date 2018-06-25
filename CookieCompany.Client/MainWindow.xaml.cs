@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CookieCompany.Model.Services.FaultExcepcion;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ServiceModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CookieCompany.Client
 {
@@ -50,6 +41,25 @@ namespace CookieCompany.Client
             {
                 var products = await proxy.ProductosAsync();
                 lstResults.ItemsSource = products.Select(x => x.Name);
+            }
+        }
+
+        private async void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            using (var proxy = new Proxy.ProductsServiceClient())
+            {
+                string nombre = txt_nombre.Text;
+                string imagen = txt_imagen.Text;
+
+                try
+                {
+                    await proxy.AddProductAsync( new Model.Services.Data.ProductoDTO { Name = nombre, Image = imagen });
+                    MessageBox.Show("El producto se agregó correctamente");
+                }
+                catch (FaultException<ProductoFault> inventFault)
+                {
+                    MessageBox.Show(inventFault.Detail.Mensaje);
+                }
             }
         }
     }

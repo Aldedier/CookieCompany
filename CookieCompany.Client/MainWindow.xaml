@@ -11,11 +11,17 @@
             <ColumnDefinition Width="52*"/>
             <ColumnDefinition Width="47*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Obtener Productos" HorizontalAlignment="Left" Margin="109,31,0,0" VerticalAlignment="Top" Width="223" Height="42" Click="Button_Click"/>
-        <Button Content="Obtener productos por ID" HorizontalAlignment="Left" Margin="40,59,0,0" VerticalAlignment="Top" Width="216" Height="25" Grid.Column="1" Click="Button_Click_1"/>
-        <ListBox x:Name="lstResults" HorizontalAlignment="Left" Height="241" Margin="109,136,0,0" VerticalAlignment="Top" Width="563" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtId" HorizontalAlignment="Left" Height="23" Margin="40,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Grid.Column="1"/>
-        <Button Content="Obtener Productos por DTO" HorizontalAlignment="Left" Margin="109,78,0,0" VerticalAlignment="Top" Width="223" Height="40" Click="Button_Click_2"/>
+        <Button Content="Obtener Productos" HorizontalAlignment="Left" Margin="40,73,0,0" VerticalAlignment="Top" Width="216" Height="23" Click="Button_Click" Grid.Column="1"/>
+        <Button Content="Obtener productos por ID" HorizontalAlignment="Left" Margin="40,43,0,0" VerticalAlignment="Top" Width="216" Height="25" Grid.Column="1" Click="Button_Click_1"/>
+        <ListBox x:Name="lstResults" HorizontalAlignment="Left" Height="262" Margin="32,140,0,0" VerticalAlignment="Top" Width="734" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtId" HorizontalAlignment="Left" Height="23" Margin="40,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Grid.Column="1"/>
+        <Button Content="Obtener Productos por DTO" HorizontalAlignment="Left" Margin="40,101,0,0" VerticalAlignment="Top" Width="216" Height="25" Click="Button_Click_2" Grid.Column="1"/>
+        <Button Content="Enviar" HorizontalAlignment="Left" Margin="236,102,0,0" VerticalAlignment="Top" Width="119" Height="27" Click="Button_Click_3"/>
+        <TextBox x:Name="txt_nombre" HorizontalAlignment="Left" Height="23" Margin="106,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249"/>
+        <TextBox x:Name="txt_imagen" HorizontalAlignment="Left" Height="23" Margin="106,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="32,41,0,0" VerticalAlignment="Top"/>
+        <Label Content="Imagen" HorizontalAlignment="Left" Margin="32,71,0,0" VerticalAlignment="Top" Height="35"/>
+        <Label Content="Agregar producto" HorizontalAlignment="Left" Margin="150,7,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
 
     </Grid>
 </Window>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CookieCompany.Model.Services.Data
 {
-    [DataContract(Name ="Mi Servicio", Namespace = "https://miservicio.com")]
+    [DataContract(Name ="MiServicio", Namespace = "https://miservicio.com")]
     public class ProductoDTO
     {
         [DataMember(Order = 3)]
