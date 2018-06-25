@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CookieCompany.Model.Services.Data
+﻿namespace CookieCompany.Model.Services.Data
 {
+    using System.Runtime.Serialization;
+
     [DataContract(Name ="MiServicio", Namespace = "https://miservicio.com")]
     public class ProductoDTO
     {

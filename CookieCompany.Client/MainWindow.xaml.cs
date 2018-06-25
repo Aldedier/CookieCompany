@@ -30,8 +30,9 @@ namespace CookieCompany.Client
             using (var proxy = new Proxy.ProductsServiceClient())
             {
                 int.TryParse(txtId.Text, out int _idProduct);
-                var products = await proxy.GetProductsByIdAsync(_idProduct);
-                MessageBox.Show(products);
+                //var products = await proxy.GetProductsByIdAsync(_idProduct);
+                var products = await proxy.GetProductoByIdAsync(_idProduct);
+                MessageBox.Show(Convert.ToString(products.Name));
             }
         }
 
@@ -53,13 +54,22 @@ namespace CookieCompany.Client
 
                 try
                 {
-                    await proxy.AddProductAsync( new Model.Services.Data.ProductoDTO { Name = nombre, Image = imagen });
+                    await proxy.AddProductAsync(new Model.Services.Data.ProductoDTO { Name = nombre, Image = imagen });
                     MessageBox.Show("El producto se agregó correctamente");
                 }
                 catch (FaultException<ProductoFault> inventFault)
                 {
                     MessageBox.Show(inventFault.Detail.Mensaje);
                 }
+            }
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            using (var proxy = new Proxy.ProductsServiceClient())
+            {
+                var total = proxy.Productos().Count();
+                MessageBox.Show(Convert.ToString(total));
             }
         }
     }

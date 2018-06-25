@@ -22,6 +22,7 @@
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="32,41,0,0" VerticalAlignment="Top"/>
         <Label Content="Imagen" HorizontalAlignment="Left" Margin="32,71,0,0" VerticalAlignment="Top" Height="35"/>
         <Label Content="Agregar producto" HorizontalAlignment="Left" Margin="150,7,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Button Content="Total Productos" Grid.Column="1" HorizontalAlignment="Left" Margin="275,15,0,0" VerticalAlignment="Top" Width="91" Click="Button_Click_4"/>
 
     </Grid>
 </Window>

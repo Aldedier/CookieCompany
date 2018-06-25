@@ -34,6 +34,12 @@ namespace CookieCompany.Client.Proxy {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductsService/Productos", ReplyAction="http://tempuri.org/IProductsService/ProductosResponse")]
         System.Threading.Tasks.Task<CookieCompany.Model.Services.Data.ProductoDTO[]> ProductosAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductsService/GetProductoById", ReplyAction="http://tempuri.org/IProductsService/GetProductoByIdResponse")]
+        CookieCompany.Model.Services.Data.ProductoDTO GetProductoById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductsService/GetProductoById", ReplyAction="http://tempuri.org/IProductsService/GetProductoByIdResponse")]
+        System.Threading.Tasks.Task<CookieCompany.Model.Services.Data.ProductoDTO> GetProductoByIdAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductsService/AddProduct", ReplyAction="http://tempuri.org/IProductsService/AddProductResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(CookieCompany.Model.Services.FaultExcepcion.ProductoFault), Action="http://demoswcf/Producto/ProductoFault", Name="ServicioError", Namespace="https://miservicioerror.com")]
         void AddProduct(CookieCompany.Model.Services.Data.ProductoDTO producto);
@@ -91,6 +97,14 @@ namespace CookieCompany.Client.Proxy {
         
         public System.Threading.Tasks.Task<CookieCompany.Model.Services.Data.ProductoDTO[]> ProductosAsync() {
             return base.Channel.ProductosAsync();
+        }
+        
+        public CookieCompany.Model.Services.Data.ProductoDTO GetProductoById(int id) {
+            return base.Channel.GetProductoById(id);
+        }
+        
+        public System.Threading.Tasks.Task<CookieCompany.Model.Services.Data.ProductoDTO> GetProductoByIdAsync(int id) {
+            return base.Channel.GetProductoByIdAsync(id);
         }
         
         public void AddProduct(CookieCompany.Model.Services.Data.ProductoDTO producto) {
